@@ -1,0 +1,29 @@
+<div class="content">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Pokedex</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <br>
+
+  <div class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Find a Pokemon" [(ngModel)]="pokeName" (change)="filterPokemon($event)">
+      <button matSuffix mat-icon-button aria-label="Clear" (click)="getPokemons()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+</div>
+
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let pokemon of pokemons">
+      <app-cards [pokemonData]="pokemon"></app-cards>
+    </div>
+  </div>
+</div>
